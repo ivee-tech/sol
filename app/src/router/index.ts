@@ -2,6 +2,8 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import Home from '../views/Home.vue'
 import Analyzer from '../views/Analyzer.vue'
+import MapComp from '../views/MapComp.vue'
+import MapSearch from '../views/MapSearch.vue'
 
 Vue.use(VueRouter)
 
@@ -23,7 +25,17 @@ const routes: Array<RouteConfig> = [
     path: '/a',
     name: 'Analyse',
     component: Analyzer // () => import(/* webpackChunkName: "about" */ '../views/Analyzer.vue')
-  }
+  },
+  {
+    path: '/m',
+    name: 'Map',
+    component: MapComp
+  },
+  {
+    path: '/ms',
+    name: 'Map Search',
+    component: MapSearch
+  },
 ]
 
 const router = new VueRouter({
