@@ -42,7 +42,7 @@ export default class App extends Vue {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */
-  color: #cd4314;
+  color: #065e1a;
 }
 
 #nav {
@@ -51,10 +51,10 @@ export default class App extends Vue {
 
 #nav a {
   font-weight: bold;
-  color: #cd4314;
+  color: #065e1a;
 }
 
 #nav a.router-link-exact-active {
-  color: #ff0000;
+  color: #065e1a;
 }
 </style>

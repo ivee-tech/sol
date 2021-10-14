@@ -28,7 +28,7 @@ export default class MapComp extends Vue {
     // const urlParams = new URLSearchParams(window.location.search);
     // this.q = urlParams.get('q');
     if(this.$route.query.data) {
-      this.data = decodeURI(this.$route.query.data);
+      this.data = decodeURI(this.$route.query.data.toString());
       this.analysisResult = JSON.parse(this.data);
       console.log(this.analysisResult);
       this.locations = this.analysisResult.entityResults[0].entities

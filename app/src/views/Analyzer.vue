@@ -1,6 +1,6 @@
 <template>
   <div class="analyzer">
-    <label for="audioFile">Upload WAV</label>...
+    <label for="audioFile">Upload WAV or Text file</label>...
     <input
       id="audioFile"
       type="file"
@@ -17,14 +17,14 @@
       cols="150"
       rows="10"
       style="width: 100%"
-      readonly
+      readonly placeholder="Original text"
     ></textarea>
     <textarea
       id="txtUpdatedText"
       v-model="analysisResult.storyUpdatedText"
       cols="150"
       rows="10"
-      style="width: 100%"
+      style="width: 100%" placeholder="Updated text"
     ></textarea>
     <hr />
     <div>
@@ -33,14 +33,19 @@
       <button v-on:click="onGotoMap">Map results</button>
     </div>
     <br />
+    <hr/>
     <h3>Key phrases</h3>
-    <div id="divKeyphrases" style="height: 10vh; overflow: auto"></div>
+    <div id="divKeyphrases"></div>
+    <hr/>
     <h3>Named entities</h3>
-    <div id="divEntities" style="height: 30vh; overflow: auto"></div>
-    <h3>Sentiment analysis</h3>
-    <div id="divSentiment" style="height: 30vh; overflow: auto"></div>
+    <div id="divEntities"></div>
+    <hr/>
     <h3>PII entities</h3>
-    <div id="divPiiEntities" style="height: 30vh; overflow: auto"></div>
+    <div id="divPiiEntities"></div>
+    <hr/>
+    <h3>Sentiment analysis</h3>
+    <div id="divSentiment"></div>
+    <hr/>
   </div>
 </template>
 
@@ -335,7 +340,7 @@ export default class Analyzer extends Vue {
       div.innerHTML += `ID: ${document.id}` + "<br />";
       div.innerHTML += `\tDocument Key Phrases: ${document.keyPhrases.map(
         (kp) =>
-          `<a href="https://www.bing.com/maps?q=${kp}" target="_blank">${kp}</>`
+          kp
       )}`;
     });
   }
